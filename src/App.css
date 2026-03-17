@@ -1,0 +1,14 @@
+/* Solo estructura de alto nivel para el contenedor raíz */
+.App {
+    /* Asegura que la app ocupe al menos el 100% del alto del monitor */
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+
+    /* Aplicamos los colores globales aquí para que hereden a toda la app */
+    background-color: var(--bg-principal);
+    color: var(--texto-principal);
+
+    /* Mantenemos la transición suave para cuando el tema cambie */
+    transition: background-color 0.3s ease, color 0.3s ease;
+}

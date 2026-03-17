@@ -1,0 +1,96 @@
+/* Centramos la tarjeta en el medio de la pantalla */
+.login-contenedor {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex: 1; /* Ocupa todo el espacio disponible que le deja App.tsx */
+    padding: 2rem;
+}
+
+/* La tarjeta del formulario */
+.login-tarjeta {
+    background-color: var(--bg-tarjeta);
+    border: 1px solid var(--borde-suave);
+    border-radius: 8px;
+    padding: 2.5rem;
+    width: 100%;
+    max-width: 400px;
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.05), 0 4px 6px -2px rgba(0, 0, 0, 0.025);
+}
+
+.login-cabecera {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.login-cabecera h2 {
+    margin-bottom: 0.5rem;
+    font-size: 1.5rem;
+    color: var(--texto-principal);
+}
+
+.login-cabecera p {
+    color: var(--texto-secundario);
+    font-size: 0.875rem;
+}
+
+.login-formulario {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem; /* Espaciado uniforme entre los campos */
+}
+
+.campo-grupo {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.campo-grupo label {
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: var(--texto-principal);
+}
+
+/* Estilos compartidos para el select y el input */
+.login-input {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid var(--borde-suave);
+    border-radius: 6px;
+    background-color: transparent;
+    color: var(--texto-principal);
+    font-size: 1rem;
+    font-family: inherit;
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+/* Efecto cuando el usuario hace clic en el campo (muy importante para la usabilidad) */
+.login-input:focus {
+    outline: none;
+    border-color: var(--marino-principal);
+    box-shadow: 0 0 0 3px rgba(30, 58, 138, 0.1);
+}
+
+/* Estilo específico para las opciones del dropdown en modo oscuro */
+.login-input option {
+    background-color: var(--bg-tarjeta);
+    color: var(--texto-principal);
+}
+
+.login-boton {
+    background-color: var(--marino-principal);
+    color: #ffffff;
+    border: none;
+    border-radius: 6px;
+    padding: 0.875rem;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.2s;
+    margin-top: 0.5rem;
+}
+
+.login-boton:hover {
+    background-color: var(--marino-hover);
+}

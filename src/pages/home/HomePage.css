@@ -1,0 +1,130 @@
+.home-contenedor {
+    padding: 2rem;
+    /* Aumentamos el ancho máximo para darle respiro a los módulos */
+    max-width: 1100px;
+    width: 100%;
+    margin: 0 auto;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.home-cabecera {
+    margin-bottom: 2rem;
+}
+
+.home-cabecera h2 {
+    font-size: 1.75rem;
+    color: var(--texto-principal);
+}
+
+.home-cabecera p {
+    color: var(--texto-secundario);
+    margin-top: 0.25rem;
+    font-size: 0.9rem;
+}
+
+.home-tarjeta-doble {
+    display: flex;
+    background-color: var(--bg-tarjeta);
+    border: 1px solid var(--borde-suave);
+    border-radius: 12px;
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.05);
+    overflow: hidden;
+    min-height: 450px;
+}
+
+.panel-izquierdo,
+.panel-derecho {
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    transition: opacity 0.2s ease;
+}
+
+.panel-izquierdo:not(.panel-activo),
+.panel-derecho:not(.panel-activo) {
+    opacity: 0.6;
+}
+
+.panel-izquierdo {
+    /* Le damos un ancho mínimo fijo para que el texto nunca se aplaste */
+    flex: 0 0 35%;
+    min-width: 280px;
+    border-right: 1px solid var(--borde-suave);
+    background-color: var(--bg-panel-secundario); /* Usando variable global */
+}
+
+.panel-derecho {
+    flex: 1;
+    /* Evita que el panel derecho se encoja demasiado en pantallas chicas */
+    min-width: 300px;
+}
+
+.titulo-panel {
+    color: var(--texto-secundario);
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: 1rem;
+    border-bottom: 1px solid var(--borde-suave);
+    padding-bottom: 0.5rem;
+}
+
+.lista-navegacion {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+}
+
+.item-lista {
+    padding: 0.75rem 1rem;
+    border-radius: 6px;
+    cursor: pointer;
+    color: var(--texto-principal);
+    font-weight: 500;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: all 0.1s ease;
+    border: 1px solid transparent;
+
+    /* --- FIX DE OVERFLOW --- */
+    /* Si el texto es muy largo, lo corta con "..." en lugar de romper la caja */
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.item-lista.seleccionado {
+    background-color: var(--borde-suave);
+}
+
+.item-lista.enfocado {
+    background-color: var(--marino-principal);
+    color: var(--texto-inverso); /* Usando variable global */
+}
+
+.item-lista:hover:not(.enfocado) {
+    background-color: var(--bg-hover); /* Usando variable global */
+}
+
+.flecha-indicador {
+    font-size: 1.25rem;
+    line-height: 1;
+    opacity: 0.5;
+    /* Evitamos que la flecha se encoja si el texto es largo */
+    flex-shrink: 0;
+    margin-left: 0.5rem;
+}
+
+.item-lista.enfocado .flecha-indicador {
+    opacity: 1;
+}
+
+.mensaje-vacio {
+    color: var(--texto-secundario);
+    font-style: italic;
+    font-size: 0.9rem;
+}

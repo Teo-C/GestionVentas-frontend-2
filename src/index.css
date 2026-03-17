@@ -1,0 +1,53 @@
+:root {
+    /* --- Fondos --- */
+    --bg-principal: #f4f6f8;       /* Un gris/celeste muy clarito */
+    --bg-tarjeta: #ffffff;         /* Blanco puro para los contenedores de información */
+
+    /* --- Textos --- */
+    --texto-principal: #1e293b;    /* Un gris muy oscuro (pizarra). Es más suave que el negro #000 */
+    --texto-secundario: #64748b;   /* Gris medio para subtítulos o información complementaria */
+
+    /* --- Bordes y Divisiones --- */
+    --borde-suave: #e2e8f0;        /* Gris claro para separar elementos sutilmente */
+
+    /* --- Acento (Azul Marino) --- */
+    --marino-principal: #1e3a8a;   /* Para botones principales, iconos o bordes activos */
+    --marino-hover: #172554;       /* Un tono más oscuro para cuando pasas el mouse por encima */
+
+    --bg-panel-secundario: #f8fafc; /* Un fondo apenitas más oscuro que el blanco para el panel izquierdo */
+    --bg-hover: rgba(30, 58, 138, 0.08); /* Fondo suave para cuando pasas el mouse */
+    --texto-inverso: #ffffff; /* Texto blanco para cuando el ítem está seleccionado en azul */
+}
+
+/* Tema Oscuro */
+[data-theme="oscuro"] {
+    --bg-principal: #0f172a;       /* Un azul/gris muy oscuro para el fondo */
+    --bg-tarjeta: #1e293b;         /* Tarjetas un tono más claro para diferenciar */
+    --texto-principal: #f8fafc;    /* Texto casi blanco para alto contraste */
+    --texto-secundario: #94a3b8;   /* Gris claro para texto secundario */
+    --borde-suave: #334155;        /* Bordes oscuros y sutiles */
+
+    /* En fondos oscuros, a veces conviene un azul ligeramente más brillante
+       para los botones para mantener el contraste y que no se pierdan */
+    --marino-principal: #3b82f6;
+    --marino-hover: #60a5fa;
+
+    --bg-panel-secundario: #0f172a; /* Fondo oscuro para el panel izquierdo */
+    --bg-hover: rgba(59, 130, 246, 0.15); /* Hover un poco más brillante en modo oscuro */
+    --texto-inverso: #ffffff; /* Sigue siendo blanco porque el fondo azul sigue siendo oscuro */
+}
+
+/* --- Reseteo básico y aplicación de los colores base --- */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: var(--bg-principal);
+    color: var(--texto-principal);
+    font-family: system-ui, -apple-system, sans-serif;
+    /* El min-height asegura que el fondo ocupe toda la pantalla del monitor */
+    min-height: 100vh;
+}
