@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import './LoginPage.css';
 
 const USUARIOS_MOCK = [
@@ -9,10 +10,12 @@ const USUARIOS_MOCK = [
 export default function LoginPage() {
   const [usuarioSeleccionado, setUsuarioSeleccionado] = useState(USUARIOS_MOCK[0].username);
   const [clave, setClave] = useState('');
+  const navigate = useNavigate();
 
   const manejarEnvio = (e: React.FormEvent) => {
     e.preventDefault();
     console.log('Intentando iniciar sesión con:', { usuario: usuarioSeleccionado, clave });
+    navigate('/home');
   };
 
   return (

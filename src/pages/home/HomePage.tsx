@@ -69,10 +69,9 @@ export default function HomePage() {
   return (
     <div className="home-contenedor">
       <div className="home-cabecera">
-        <h2>Bienvenidp/a al sistema de ventas</h2>
+        <h2>Bienvenido/a al sistema de ventas</h2>
       </div>
 
-      {/* Tarjeta única y compacta que contiene ambos paneles */}
       <div className="home-tarjeta-doble">
 
         {/* Panel Izquierdo: Módulos Principales */}

@@ -1,0 +1,75 @@
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    backdrop-filter: blur(2px);
+    /* Pequeña animación de aparición */
+    animation: fadeIn 0.2s ease-out;
+}
+
+.modal-contenido {
+    background-color: var(--bg-tarjeta);
+    border-radius: 12px;
+    width: 100%;
+    max-width: 500px;
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+    border: 1px solid var(--borde-suave);
+    /* Animación para que el modal "suba" sutilmente */
+    animation: slideUp 0.3s ease-out;
+    display: flex;
+    flex-direction: column;
+}
+
+.modal-cabecera {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.5rem 2rem;
+    border-bottom: 1px solid var(--borde-suave);
+}
+
+.modal-titulo {
+    color: var(--texto-principal);
+    font-size: 1.25rem;
+    margin: 0;
+}
+
+.modal-boton-cerrar {
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    line-height: 1;
+    color: var(--texto-secundario);
+    cursor: pointer;
+    transition: color 0.2s;
+    padding: 0;
+}
+
+.modal-boton-cerrar:hover {
+    color: var(--texto-principal);
+}
+
+.modal-cuerpo {
+    padding: 2rem;
+    /* Si el contenido es muy largo, hacemos que solo el cuerpo tenga scroll */
+    max-height: 70vh;
+    overflow-y: auto;
+}
+
+/* Animaciones */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes slideUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
