@@ -1,0 +1,281 @@
+.pagina-contenedor {
+    padding: 2rem;
+    max-width: 1000px;
+    margin: 0 auto;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.pagina-cabecera {
+    margin-bottom: 0.5rem;
+}
+
+.boton-volver {
+    background: none;
+    border: none;
+    color: var(--texto-secundario);
+    cursor: pointer;
+    font-size: 0.9rem;
+    margin-bottom: 1rem;
+    padding: 0;
+    display: inline-flex;
+    align-items: center;
+}
+
+.boton-volver:hover {
+    color: var(--texto-principal);
+    text-decoration: underline;
+}
+
+.pagina-titulo {
+    font-size: 1.75rem;
+    color: var(--texto-principal);
+    margin-bottom: 0.25rem;
+}
+
+.pagina-subtitulo {
+    color: var(--texto-secundario);
+    font-size: 0.95rem;
+}
+
+/* --- Tarjeta del Formulario --- */
+.formulario-tarjeta {
+    background-color: var(--bg-tarjeta);
+    border: 1px solid var(--borde-suave);
+    border-radius: 12px;
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.05);
+    overflow: hidden; /* Mantiene los bordes redondeados limpios */
+}
+
+.formulario-seccion {
+    padding: 2rem;
+}
+
+.seccion-titulo {
+    font-size: 1.2rem;
+    color: var(--texto-principal);
+    margin-top: 0;
+    margin-bottom: 0.25rem;
+}
+
+.seccion-descripcion {
+    color: var(--texto-secundario);
+    font-size: 0.9rem;
+    margin-bottom: 1.5rem;
+}
+
+.divisor {
+    border: none;
+    border-top: 1px solid var(--borde-suave);
+    margin: 0;
+}
+
+/* --- Grid de Campos Básicos --- */
+.formulario-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 3 columnas iguales */
+    gap: 1.5rem;
+}
+
+.campo-grupo {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+/* Permite que un campo ocupe dos columnas (ideal para descripciones largas) */
+.span-2 {
+    grid-column: span 2;
+}
+
+.campo-grupo label {
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: var(--texto-principal);
+}
+
+.input-formulario {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid var(--borde-suave);
+    border-radius: 6px;
+    background-color: var(--bg-principal);
+    color: var(--texto-principal);
+    font-family: inherit;
+    font-size: 0.95rem;
+    transition: border-color 0.2s;
+}
+
+.input-formulario:focus {
+    outline: none;
+    border-color: var(--marino-principal);
+}
+
+.font-mono {
+    font-family: monospace;
+    font-size: 1rem;
+}
+
+/* Campo con icono (para el símbolo de la moneda) */
+.input-con-icono {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.icono-moneda {
+    position: absolute;
+    left: 0.75rem;
+    color: var(--texto-secundario);
+    font-weight: 500;
+}
+
+.pl-8 {
+    padding-left: 2rem !important; /* Deja espacio para el icono */
+}
+
+/* --- Tabla de Variantes --- */
+.cabecera-variantes {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 1rem;
+}
+
+.contenedor-tabla-variantes {
+    border: 1px solid var(--borde-suave);
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.estado-vacio {
+    padding: 3rem;
+    text-align: center;
+    background-color: var(--bg-panel-secundario);
+    color: var(--texto-secundario);
+}
+
+.tabla-variantes {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.tabla-variantes th,
+.tabla-variantes td {
+    padding: 0.75rem;
+    border-bottom: 1px solid var(--borde-suave);
+}
+
+.tabla-variantes th {
+    background-color: var(--bg-panel-secundario);
+    color: var(--texto-secundario);
+    font-weight: 600;
+    font-size: 0.85rem;
+    text-align: left;
+}
+
+/* Inputs específicos dentro de la tabla */
+.input-tabla {
+    width: 100%;
+    padding: 0.5rem;
+    border: 1px solid transparent;
+    border-radius: 4px;
+    background-color: var(--bg-principal);
+    color: var(--texto-principal);
+    font-family: inherit;
+}
+
+.input-tabla:focus {
+    outline: none;
+    border-color: var(--marino-principal);
+    background-color: var(--bg-tarjeta);
+}
+
+.celda-centrada {
+    text-align: center !important;
+}
+
+.boton-eliminar-variante {
+    background: none;
+    border: 1px solid #fca5a5;
+    color: #ef4444;
+    padding: 0.4rem 0.75rem;
+    border-radius: 4px;
+    font-size: 0.85rem;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.boton-eliminar-variante:hover {
+    background-color: #fee2e2;
+    border-color: #ef4444;
+}
+
+/* --- Botones Genéricos --- */
+.formulario-acciones {
+    padding: 1.5rem 2rem;
+    background-color: var(--bg-panel-secundario);
+    border-top: 1px solid var(--borde-suave);
+    display: flex;
+    justify-content: flex-end;
+    gap: 1rem;
+}
+
+.boton-primario-grande,
+.boton-secundario-grande {
+    padding: 0.875rem 1.5rem;
+    font-size: 1rem;
+    border-radius: 6px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.boton-primario-grande {
+    background-color: var(--marino-principal);
+    color: var(--texto-inverso);
+    border: none;
+}
+
+.boton-primario-grande:hover {
+    background-color: var(--marino-hover);
+}
+
+.boton-secundario-grande {
+    background-color: transparent;
+    color: var(--texto-principal);
+    border: 1px solid var(--borde-suave);
+}
+
+.boton-secundario-grande:hover {
+    background-color: var(--borde-suave);
+}
+
+.boton-secundario {
+    background-color: transparent;
+    color: var(--texto-principal);
+    border: 1px solid var(--borde-suave);
+    border-radius: 6px;
+    padding: 0.6rem 1rem;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.boton-secundario:hover {
+    background-color: var(--borde-suave);
+}
+
+.boton-texto {
+    background: none;
+    border: none;
+    color: var(--marino-principal);
+    font-weight: 600;
+    cursor: pointer;
+    margin-top: 0.5rem;
+}
+
+.boton-texto:hover {
+    text-decoration: underline;
+}

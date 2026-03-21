@@ -4,7 +4,10 @@ import {ToastContainer} from "react-toastify";
 
 import LoginPage from './pages/login/LoginPage';
 import HomePage from "./pages/home/HomePage.tsx";
+import ArticlePage from "./pages/article/ArticlePage.tsx";
+import NewArticlePage from "./pages/article/NewArticlePage.tsx";
 import ClientsPage from './pages/clients/ClientsPage';
+
 import EmployeesPage from "./pages/admin/employees/EmployeesPage.tsx";
 
 import Clock from './components/Clock/Clock';
@@ -14,7 +17,9 @@ function App() {
   // 1. Definimos el estado. Le decimos a TypeScript que solo puede ser 'claro' o 'oscuro'.
   // Intentamos leer si el usuario ya tenía una preferencia guardada, si no, usamos 'claro'.
   const [tema, setTema] = useState<'claro' | 'oscuro'>(() => {
-    return (localStorage.getItem('temaApp') as 'claro' | 'oscuro') || 'claro';
+    // return (localStorage.getItem('temaApp') as 'claro' | 'oscuro') || 'claro';
+    // return 'oscuro';
+    return 'claro'
   });
 
   useEffect(() => {
@@ -34,6 +39,9 @@ function App() {
           <Route path="/" element={<LoginPage/>} />
           <Route path="/home" element={<HomePage />} />
           <Route path="/clientes" element={<ClientsPage />} />
+          <Route path="/articulos" element={<ArticlePage />} />
+          <Route path="/articulos/nuevo" element={<NewArticlePage />} />
+
           <Route path="/admin/empleados" element={<EmployeesPage />} />
         </Routes>
 
