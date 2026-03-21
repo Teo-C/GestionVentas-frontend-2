@@ -4,6 +4,7 @@ import {ToastContainer} from "react-toastify";
 
 import LoginPage from './pages/login/LoginPage';
 import HomePage from "./pages/home/HomePage.tsx";
+import ClientsPage from './pages/clients/ClientsPage';
 import EmployeesPage from "./pages/admin/employees/EmployeesPage.tsx";
 
 import Clock from './components/Clock/Clock';
@@ -32,6 +33,7 @@ function App() {
         <Routes>
           <Route path="/" element={<LoginPage/>} />
           <Route path="/home" element={<HomePage />} />
+          <Route path="/clientes" element={<ClientsPage />} />
           <Route path="/admin/empleados" element={<EmployeesPage />} />
         </Routes>
 
