@@ -2,6 +2,7 @@ import { useState, useMemo } from 'react';
 import type {StockItem, Article} from "../../types/article.ts";
 import './ArticlePage.css';
 import {useNavigate} from "react-router-dom";
+import BackButton from '../../components/BackButton/BackButton';
 
 // Mocks auxiliares para los selectores y la tabla
 const MOCK_MARCAS = [{ id: 1, name: 'Nike' }, { id: 2, name: 'Adidas' }, { id: 3, name: 'Genérica' }];
@@ -60,15 +61,18 @@ export default function ArticlePage() {
 
   return (
     <div className="pagina-contenedor">
-      <div className="pagina-cabecera">
+      <div style={{ display: 'flex', alignItems: 'center', gap: '1.2em', marginBottom: '0.5em' }}>
+        <BackButton />
+        {/* Cabecera y Controles */}
         <div>
           <h2 className="pagina-titulo">Catálogo de Artículos</h2>
           <p className="pagina-subtitulo">Gestiona productos, precios y variantes de stock</p>
         </div>
-        <button className="boton-primario" onClick={handleNewArticle}>
-          + Nuevo Artículo
-        </button>
       </div>
+
+      <button className="boton-primario" onClick={handleNewArticle}>
+        + Nuevo Artículo
+      </button>
 
       <div className="controles-tabla">
         <input

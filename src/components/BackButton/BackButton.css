@@ -1,0 +1,26 @@
+/* BackButton.css */
+.back-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  background: none;
+  border: none;
+  border-radius: 50%;
+  box-shadow: 0 2px 8px rgba(30, 58, 138, 0.07);
+  transition: background 0.18s, box-shadow 0.18s, transform 0.12s;
+  cursor: pointer;
+  padding: 0;
+  outline: none;
+}
+
+.back-button:hover, .back-button:focus {
+  background: var(--bg-hover);
+  box-shadow: 0 4px 16px rgba(30, 58, 138, 0.13);
+  transform: translateY(-1px) scale(1.06);
+}
+
+.back-button svg {
+  display: block;
+}

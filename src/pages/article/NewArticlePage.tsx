@@ -55,7 +55,7 @@ export default function CrearArticuloPage() {
 
       <div className="pagina-cabecera">
         <div>
-          <button className="boton-volver" onClick={() => navigate('/articulos')}>
+          <button className="boton-volver" onClick={() => navigate(-1)}>
             ← Volver al Catálogo
           </button>
           <h2 className="pagina-titulo">Crear Nuevo Artículo</h2>
@@ -220,7 +220,7 @@ export default function CrearArticuloPage() {
 
         {/* SECCIÓN 3: Acciones Finales */}
         <div className="formulario-acciones">
-          <button type="button" className="boton-secundario-grande" onClick={() => navigate('/articulos')}>
+          <button type="button" className="boton-secundario-grande" onClick={() => navigate(-1)}>
             Cancelar
           </button>
           <button type="submit" className="boton-primario-grande">

@@ -1,6 +1,7 @@
 import { useState, useMemo } from 'react';
 import type {Client} from '../../types/client';
 import Modal from '../../components/modal/Modal';
+import BackButton from '../../components/BackButton/BackButton';
 import './ClientsPage.css';
 
 // Mock de datos iniciales
@@ -56,16 +57,18 @@ export default function ClientesPage() {
 
   return (
     <div className="pagina-contenedor">
-
-      <div className="pagina-cabecera">
+      <div style={{ display: 'flex', alignItems: 'center', gap: '1.2em', marginBottom: '0.5em' }}>
+        <BackButton />
+        {/* Cabecera y Controles */}
         <div>
           <h2 className="pagina-titulo">Directorio de Clientes</h2>
           <p className="pagina-subtitulo">Administra los clientes y sus datos de facturación</p>
         </div>
-        <button className="boton-primario" onClick={() => setMostrarModal(true)}>
-          + Nuevo Cliente
-        </button>
       </div>
+
+      <button className="boton-primario" onClick={() => setMostrarModal(true)}>
+        + Nuevo Cliente
+      </button>
 
       <div className="controles-tabla">
         <input

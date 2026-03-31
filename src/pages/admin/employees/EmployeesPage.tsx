@@ -1,5 +1,6 @@
 import { useState, useMemo } from 'react';
 import Modal from '../../../components/modal/Modal';
+import BackButton from '../../../components/BackButton/BackButton';
 import type {Employee} from "../../../types/employee.ts";
 import './EmployeesPage.css';
 
@@ -48,20 +49,21 @@ export default function EmployeesPage() {
 
   return (
     <div className="pagina-contenedor">
-
-      {/* Cabecera y Controles */}
-      <div className="pagina-cabecera">
+      <div style={{ display: 'flex', alignItems: 'center', gap: '1.2em', marginBottom: '0.5em' }}>
+        <BackButton />
+        {/* Cabecera y Controles */}
         <div>
           <h2 className="pagina-titulo">Gestión de Empleados</h2>
           <p className="pagina-subtitulo">Administra el personal del comercio</p>
         </div>
-        <button
-          className="boton-primario"
-          onClick={() => setMostrarModal(true)}
-        >
-          + Nuevo Empleado
-        </button>
       </div>
+
+      <button
+        className="boton-primario"
+        onClick={() => setMostrarModal(true)}
+      >
+        + Nuevo Empleado
+      </button>
 
       <div className="controles-tabla">
         <input
