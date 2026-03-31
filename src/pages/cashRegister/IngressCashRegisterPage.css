@@ -1,0 +1,247 @@
+/* ─── Estructura general ─────────────────────────────────────────────────── */
+.pagina-contenedor {
+    padding: 2rem;
+    max-width: 860px;
+    margin: 0 auto;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.cashinput-cabecera-row {
+    display: flex;
+    align-items: center;
+    gap: 1.2rem;
+    margin-bottom: 0.25rem;
+}
+
+.pagina-titulo {
+    font-size: 1.75rem;
+    color: var(--texto-principal);
+    margin-bottom: 0.25rem;
+}
+
+.pagina-subtitulo {
+    color: var(--texto-secundario);
+    font-size: 0.9rem;
+}
+
+/* ─── Alerta caja cerrada ────────────────────────────────────────────────── */
+.cashinput-alerta {
+    display: flex;
+    align-items: center;
+    gap: 0.875rem;
+    padding: 1rem 1.5rem;
+    border-radius: 10px;
+    background-color: rgba(234, 179, 8, 0.1);
+    border: 1px solid rgba(234, 179, 8, 0.35);
+    color: var(--texto-principal);
+    font-size: 0.9rem;
+}
+
+.cashinput-alerta-icono {
+    font-size: 1.25rem;
+    flex-shrink: 0;
+}
+
+/* ─── Tarjeta del formulario ─────────────────────────────────────────────── */
+.cashinput-form-card {
+    background-color: var(--bg-tarjeta);
+    border: 1px solid var(--borde-suave);
+    border-radius: 12px;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+    overflow: hidden;
+}
+
+.cashinput-form-header {
+    padding: 1.5rem 2rem 1.25rem 2rem;
+    border-bottom: 1px solid var(--borde-suave);
+}
+
+.cashinput-form-titulo {
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: var(--texto-principal);
+    margin: 0 0 0.25rem 0;
+}
+
+.cashinput-form-subtitulo {
+    font-size: 0.875rem;
+    color: var(--texto-secundario);
+    margin: 0;
+}
+
+/* ─── Formulario ─────────────────────────────────────────────────────────── */
+.cashinput-form {
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.cashinput-fila {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+}
+
+@media (max-width: 540px) {
+    .cashinput-fila {
+        grid-template-columns: 1fr;
+    }
+}
+
+.campo-grupo {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.campo-grupo label {
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: var(--texto-principal);
+}
+
+/* ─── Inputs ─────────────────────────────────────────────────────────────── */
+.input-formulario {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid var(--borde-suave);
+    border-radius: 6px;
+    background-color: var(--bg-principal);
+    color: var(--texto-principal);
+    font-family: inherit;
+    font-size: 0.95rem;
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.input-formulario:focus {
+    outline: none;
+    border-color: var(--marino-principal);
+    box-shadow: 0 0 0 3px var(--bg-hover);
+}
+
+/* Inputs deshabilitados cuando caja cerrada */
+.input-formulario:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    background-color: var(--bg-panel-secundario);
+}
+
+/* Inputs de solo lectura (fecha / hora) */
+.cashinput-readonly {
+    background-color: var(--bg-panel-secundario);
+    color: var(--texto-secundario);
+    cursor: default;
+    user-select: none;
+}
+
+.cashinput-readonly:focus {
+    outline: none;
+    border-color: var(--borde-suave);
+    box-shadow: none;
+}
+
+.cashinput-hora {
+    font-family: monospace;
+    font-size: 1.1rem;
+    letter-spacing: 0.05em;
+}
+
+/* Input con ícono de moneda */
+.input-con-icono {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.icono-moneda {
+    position: absolute;
+    left: 0.75rem;
+    color: var(--texto-secundario);
+    font-weight: 500;
+    pointer-events: none;
+}
+
+.pl-8 {
+    padding-left: 2rem !important;
+}
+
+/* Textarea */
+.textarea-formulario {
+    resize: vertical;
+    min-height: 80px;
+    line-height: 1.5;
+}
+
+/* ─── Acciones ───────────────────────────────────────────────────────────── */
+.cashinput-form-acciones {
+    display: flex;
+    justify-content: flex-end;
+    gap: 1rem;
+    padding-top: 1.25rem;
+    border-top: 1px solid var(--borde-suave);
+    margin-top: 0.5rem;
+}
+
+/* ─── Botones ─────────────────────────────────────────────────────────────── */
+.boton-primario {
+    border: none;
+    border-radius: 6px;
+    padding: 0.75rem 1.5rem;
+    font-weight: 600;
+    font-size: 0.95rem;
+    cursor: pointer;
+    transition: background-color 0.2s, opacity 0.2s, transform 0.1s;
+    color: var(--texto-inverso);
+}
+
+.boton-primario:hover:not(:disabled) {
+    transform: translateY(-1px);
+}
+
+.boton-primario:active:not(:disabled) {
+    transform: translateY(0);
+}
+
+.boton-primario:disabled {
+    opacity: 0.35;
+    cursor: not-allowed;
+    transform: none;
+    filter: grayscale(0.4);
+}
+
+/* Verde para ingreso de dinero */
+.boton-ingresar {
+    background-color: #16a34a;
+}
+
+.boton-ingresar:hover:not(:disabled) {
+    background-color: #15803d;
+}
+
+[data-theme="oscuro"] .boton-ingresar {
+    background-color: #22c55e;
+}
+
+[data-theme="oscuro"] .boton-ingresar:hover:not(:disabled) {
+    background-color: #16a34a;
+}
+
+.boton-secundario {
+    background-color: transparent;
+    color: var(--texto-principal);
+    border: 1px solid var(--borde-suave);
+    border-radius: 6px;
+    padding: 0.75rem 1.25rem;
+    font-weight: 600;
+    font-size: 0.95rem;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.boton-secundario:hover {
+    background-color: var(--borde-suave);
+}

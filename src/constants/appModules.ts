@@ -28,10 +28,10 @@ const appModules: AppModule[] = [
     id: 4,
     label: '4. Caja',
     submodules: [
-      { id: 1, label: 'Abrir/Cerrar Caja', route: '/caja' },
+      { id: 1, label: 'Abrir/Cerrar Caja', route: '/caja/abrir-cerrar' },
       { id: 2, label: 'Ingresar Dinero', route: '/caja/ingreso' },
       { id: 3, label: 'Egresar Dinero', route: '/caja/egreso' },
-      { id: 4, label: 'Movimientos', route: '/caja/movimientos' },
+      { id: 4, label: 'Movimientos', route: '/caja' },
       { id: 5, label: 'Historial de Cajas', route: '/caja/historial' },
     ]
   },

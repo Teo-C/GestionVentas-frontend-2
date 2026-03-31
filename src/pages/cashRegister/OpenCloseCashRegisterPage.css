@@ -1,0 +1,315 @@
+/* ─── Estructura general ─────────────────────────────────────────────────── */
+.pagina-contenedor {
+    padding: 2rem;
+    max-width: 860px;
+    margin: 0 auto;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.caja-cabecera-row {
+    display: flex;
+    align-items: center;
+    gap: 1.2rem;
+    margin-bottom: 0.25rem;
+}
+
+.pagina-titulo {
+    font-size: 1.75rem;
+    color: var(--texto-principal);
+    margin-bottom: 0.25rem;
+}
+
+.pagina-subtitulo {
+    color: var(--texto-secundario);
+    font-size: 0.9rem;
+}
+
+/* ─── Banner de estado ───────────────────────────────────────────────────── */
+.caja-estado-banner {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem 1.5rem;
+    border-radius: 10px;
+    border: 1px solid;
+    transition: background-color 0.3s, border-color 0.3s;
+}
+
+.caja-estado-banner.abierta {
+    background-color: rgba(34, 197, 94, 0.08);
+    border-color: rgba(34, 197, 94, 0.3);
+}
+
+.caja-estado-banner.cerrada {
+    background-color: rgba(239, 68, 68, 0.07);
+    border-color: rgba(239, 68, 68, 0.25);
+}
+
+.caja-estado-dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    flex-shrink: 0;
+}
+
+.abierta .caja-estado-dot {
+    background-color: #22c55e;
+    box-shadow: 0 0 0 3px rgba(34, 197, 94, 0.25);
+    animation: pulseDot 2s infinite;
+}
+
+.cerrada .caja-estado-dot {
+    background-color: #ef4444;
+}
+
+@keyframes pulseDot {
+    0%, 100% { box-shadow: 0 0 0 3px rgba(34, 197, 94, 0.25); }
+    50%       { box-shadow: 0 0 0 6px rgba(34, 197, 94, 0.1); }
+}
+
+.caja-estado-info {
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem;
+}
+
+.caja-estado-texto {
+    font-weight: 700;
+    font-size: 0.95rem;
+}
+
+.abierta .caja-estado-texto { color: #16a34a; }
+.cerrada .caja-estado-texto { color: #dc2626; }
+
+[data-theme="oscuro"] .abierta .caja-estado-texto { color: #4ade80; }
+[data-theme="oscuro"] .cerrada .caja-estado-texto  { color: #f87171; }
+
+.caja-estado-detalle {
+    font-size: 0.85rem;
+    color: var(--texto-secundario);
+}
+
+/* ─── Tarjeta del formulario ─────────────────────────────────────────────── */
+.caja-form-card {
+    background-color: var(--bg-tarjeta);
+    border: 1px solid var(--borde-suave);
+    border-radius: 12px;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+    overflow: hidden;
+}
+
+.caja-form-header {
+    padding: 1.5rem 2rem 0 2rem;
+    border-bottom: 1px solid var(--borde-suave);
+    padding-bottom: 1.25rem;
+    margin-bottom: 0;
+}
+
+.caja-form-titulo {
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: var(--texto-principal);
+    margin: 0 0 0.25rem 0;
+}
+
+.caja-form-subtitulo {
+    font-size: 0.875rem;
+    color: var(--texto-secundario);
+    margin: 0;
+}
+
+/* ─── Formulario ─────────────────────────────────────────────────────────── */
+.caja-form {
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.caja-fila {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+}
+
+@media (max-width: 540px) {
+    .caja-fila {
+        grid-template-columns: 1fr;
+    }
+}
+
+.campo-grupo {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.campo-grupo label {
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: var(--texto-principal);
+}
+
+/* ─── Inputs ─────────────────────────────────────────────────────────────── */
+.input-formulario {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid var(--borde-suave);
+    border-radius: 6px;
+    background-color: var(--bg-principal);
+    color: var(--texto-principal);
+    font-family: inherit;
+    font-size: 0.95rem;
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.input-formulario:focus {
+    outline: none;
+    border-color: var(--marino-principal);
+    box-shadow: 0 0 0 3px var(--bg-hover);
+}
+
+/* Inputs de solo lectura (fecha / hora) */
+.caja-input-readonly {
+    background-color: var(--bg-panel-secundario);
+    color: var(--texto-secundario);
+    cursor: default;
+    user-select: none;
+}
+
+.caja-input-readonly:focus {
+    outline: none;
+    border-color: var(--borde-suave);
+    box-shadow: none;
+}
+
+/* Hora con font monospace para que los dígitos no salten */
+.caja-hora {
+    font-family: monospace;
+    font-size: 1.1rem;
+    letter-spacing: 0.05em;
+}
+
+/* Input con ícono de moneda */
+.input-con-icono {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.icono-moneda {
+    position: absolute;
+    left: 0.75rem;
+    color: var(--texto-secundario);
+    font-weight: 500;
+    pointer-events: none;
+}
+
+.pl-8 {
+    padding-left: 2rem !important;
+}
+
+/* Textarea */
+.textarea-formulario {
+    resize: vertical;
+    min-height: 80px;
+    line-height: 1.5;
+}
+
+/* ─── Acciones ───────────────────────────────────────────────────────────── */
+.caja-form-acciones {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+    padding-top: 1.25rem;
+    border-top: 1px solid var(--borde-suave);
+    margin-top: 0.5rem;
+}
+
+/* Agrupa los dos botones de apertura/cierre juntos a la derecha */
+.caja-botones-accion {
+    display: flex;
+    gap: 0.75rem;
+}
+
+/* ─── Botones ─────────────────────────────────────────────────────────────── */
+.boton-primario {
+    border: none;
+    border-radius: 6px;
+    padding: 0.75rem 1.5rem;
+    font-weight: 600;
+    font-size: 0.95rem;
+    cursor: pointer;
+    transition: background-color 0.2s, opacity 0.2s, transform 0.1s;
+    color: var(--texto-inverso);
+}
+
+.boton-primario:hover:not(:disabled) {
+    transform: translateY(-1px);
+}
+
+.boton-primario:active:not(:disabled) {
+    transform: translateY(0);
+}
+
+/* Botón deshabilitado: muy visible que no se puede usar */
+.boton-primario:disabled {
+    opacity: 0.35;
+    cursor: not-allowed;
+    transform: none;
+    filter: grayscale(0.4);
+}
+
+/* Verde para apertura */
+.boton-abrir {
+    background-color: #16a34a;
+}
+
+.boton-abrir:hover:not(:disabled) {
+    background-color: #15803d;
+}
+
+[data-theme="oscuro"] .boton-abrir {
+    background-color: #22c55e;
+}
+
+[data-theme="oscuro"] .boton-abrir:hover:not(:disabled) {
+    background-color: #16a34a;
+}
+
+/* Rojo para cierre */
+.boton-cerrar {
+    background-color: #dc2626;
+}
+
+.boton-cerrar:hover:not(:disabled) {
+    background-color: #b91c1c;
+}
+
+[data-theme="oscuro"] .boton-cerrar {
+    background-color: #ef4444;
+}
+
+[data-theme="oscuro"] .boton-cerrar:hover:not(:disabled) {
+    background-color: #dc2626;
+}
+
+.boton-secundario {
+    background-color: transparent;
+    color: var(--texto-principal);
+    border: 1px solid var(--borde-suave);
+    border-radius: 6px;
+    padding: 0.75rem 1.25rem;
+    font-weight: 600;
+    font-size: 0.95rem;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.boton-secundario:hover {
+    background-color: var(--borde-suave);
+}

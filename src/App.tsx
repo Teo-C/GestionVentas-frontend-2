@@ -7,6 +7,9 @@ import HomePage from "./pages/home/HomePage.tsx";
 import ArticlePage from "./pages/article/ArticlePage.tsx";
 import NewArticlePage from "./pages/article/NewArticlePage.tsx";
 import ClientsPage from './pages/clients/ClientsPage';
+import OpenCloseCashRegisterPage from './pages/cashRegister/OpenCloseCashRegisterPage.tsx';
+import IngressCashRegisterPage from "./pages/cashRegister/IngressCashRegisterPage.tsx";
+import EgressCashRegisterPage from "./pages/cashRegister/EgressCashRegisterPage.tsx";
 
 import EmployeesPage from "./pages/admin/employees/EmployeesPage.tsx";
 
@@ -39,8 +42,13 @@ function App() {
           <Route path="/" element={<LoginPage/>} />
           <Route path="/home" element={<HomePage />} />
           <Route path="/clientes" element={<ClientsPage />} />
+
           <Route path="/articulos" element={<ArticlePage />} />
           <Route path="/articulos/nuevo" element={<NewArticlePage />} />
+
+          <Route path="/caja/abrir-cerrar" element={<OpenCloseCashRegisterPage />} />
+          <Route path="/caja/ingreso" element={<IngressCashRegisterPage />} />
+          <Route path="/caja/egreso" element={<EgressCashRegisterPage />} />
 
           <Route path="/admin/empleados" element={<EmployeesPage />} />
         </Routes>
