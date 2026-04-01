@@ -1,0 +1,271 @@
+/* ─── Estructura general ─────────────────────────────────────────────────── */
+.pagina-contenedor {
+    padding: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.movements-cabecera-row {
+    display: flex;
+    align-items: center;
+    gap: 1.2rem;
+    margin-bottom: 0.25rem;
+}
+
+.pagina-titulo {
+    font-size: 1.75rem;
+    color: var(--texto-principal);
+    margin-bottom: 0.25rem;
+}
+
+.pagina-subtitulo {
+    color: var(--texto-secundario);
+    font-size: 0.9rem;
+}
+
+/* ─── Balance del día ────────────────────────────────────────────────────── */
+.movements-balance-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+}
+
+@media (max-width: 640px) {
+    .movements-balance-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+.balance-card {
+    background-color: var(--bg-tarjeta);
+    border: 1px solid var(--borde-suave);
+    border-radius: 10px;
+    padding: 1.25rem 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.04);
+}
+
+.balance-label {
+    font-size: 0.8rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--texto-secundario);
+}
+
+.balance-monto {
+    font-size: 1.5rem;
+    font-weight: 700;
+    font-family: monospace;
+    letter-spacing: -0.01em;
+}
+
+/* Ingresos: verde */
+.balance-in {
+    border-left: 4px solid #22c55e;
+}
+.balance-in .balance-monto { color: #16a34a; }
+[data-theme="oscuro"] .balance-in .balance-monto { color: #4ade80; }
+
+/* Egresos: rojo */
+.balance-out {
+    border-left: 4px solid #ef4444;
+}
+.balance-out .balance-monto { color: #dc2626; }
+[data-theme="oscuro"] .balance-out .balance-monto { color: #f87171; }
+
+/* Balance neto */
+.balance-neto.positivo {
+    border-left: 4px solid var(--marino-principal);
+}
+.balance-neto.positivo .balance-monto { color: var(--marino-principal); }
+
+.balance-neto.negativo {
+    border-left: 4px solid #dc2626;
+}
+.balance-neto.negativo .balance-monto { color: #dc2626; }
+
+/* ─── Filtros ────────────────────────────────────────────────────────────── */
+.movements-filtros {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.filtro-chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    padding: 0.4rem 0.875rem;
+    border-radius: 99px;
+    border: 1px solid var(--borde-suave);
+    background-color: var(--bg-tarjeta);
+    color: var(--texto-secundario);
+    font-size: 0.85rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.15s;
+}
+
+.filtro-chip:hover {
+    background-color: var(--bg-hover);
+    color: var(--texto-principal);
+}
+
+.filtro-chip.activo {
+    background-color: var(--marino-principal);
+    border-color: var(--marino-principal);
+    color: var(--texto-inverso);
+}
+
+.filtro-chip.activo .filtro-chip-count {
+    background-color: rgba(255,255,255,0.25);
+    color: var(--texto-inverso);
+}
+
+.filtro-chip-count {
+    background-color: var(--bg-panel-secundario);
+    color: var(--texto-secundario);
+    font-size: 0.75rem;
+    font-weight: 700;
+    padding: 0.1rem 0.45rem;
+    border-radius: 99px;
+    min-width: 1.25rem;
+    text-align: center;
+}
+
+/* Colores semánticos en chips no activos */
+.filtro-chip--green:not(.activo):hover  { border-color: #22c55e; color: #16a34a; }
+.filtro-chip--red:not(.activo):hover    { border-color: #ef4444; color: #dc2626; }
+.filtro-chip--blue:not(.activo):hover   { border-color: var(--marino-principal); color: var(--marino-principal); }
+.filtro-chip--orange:not(.activo):hover { border-color: #f97316; color: #ea580c; }
+
+/* ─── Tabla ──────────────────────────────────────────────────────────────── */
+.tabla-contenedor {
+    background-color: var(--bg-tarjeta);
+    border: 1px solid var(--borde-suave);
+    border-radius: 10px;
+    overflow-x: auto;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+}
+
+.tabla-datos {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: left;
+}
+
+.tabla-datos th,
+.tabla-datos td {
+    padding: 0.875rem 1.25rem;
+    border-bottom: 1px solid var(--borde-suave);
+}
+
+.tabla-datos th {
+    background-color: var(--bg-panel-secundario);
+    color: var(--texto-secundario);
+    font-weight: 600;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    white-space: nowrap;
+}
+
+.tabla-datos tbody tr:last-child td {
+    border-bottom: none;
+}
+
+.tabla-datos tbody tr {
+    transition: background-color 0.15s;
+}
+
+.tabla-datos tbody tr:hover {
+    background-color: var(--bg-hover);
+}
+
+.col-hora {
+    font-family: monospace;
+    font-size: 0.9rem;
+    color: var(--texto-secundario);
+    white-space: nowrap;
+}
+
+.col-observacion {
+    max-width: 260px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    color: var(--texto-secundario);
+    font-size: 0.9rem;
+}
+
+.sin-obs {
+    color: var(--borde-suave);
+}
+
+.col-monto {
+    text-align: right !important;
+    white-space: nowrap;
+}
+
+.monto-valor {
+    font-family: monospace;
+    font-weight: 700;
+    font-size: 0.95rem;
+}
+
+.monto-signo {
+    margin-right: 0.15rem;
+    font-weight: 400;
+}
+
+.monto-in  { color: #16a34a; }
+.monto-out { color: #dc2626; }
+
+[data-theme="oscuro"] .monto-in  { color: #4ade80; }
+[data-theme="oscuro"] .monto-out { color: #f87171; }
+
+.celda-vacia {
+    text-align: center;
+    padding: 3rem !important;
+    color: var(--texto-secundario);
+    font-style: italic;
+}
+
+/* ─── Badges de tipo ─────────────────────────────────────────────────────── */
+.tipo-badge {
+    display: inline-block;
+    padding: 0.25rem 0.65rem;
+    border-radius: 99px;
+    font-size: 0.78rem;
+    font-weight: 600;
+    white-space: nowrap;
+}
+
+.tipo-badge--green {
+    background-color: rgba(34, 197, 94, 0.12);
+    color: #16a34a;
+}
+.tipo-badge--red {
+    background-color: rgba(239, 68, 68, 0.12);
+    color: #dc2626;
+}
+.tipo-badge--blue {
+    background-color: rgba(30, 58, 138, 0.1);
+    color: var(--marino-principal);
+}
+.tipo-badge--orange {
+    background-color: rgba(249, 115, 22, 0.12);
+    color: #ea580c;
+}
+
+[data-theme="oscuro"] .tipo-badge--green  { background-color: rgba(74, 222, 128, 0.15); color: #4ade80; }
+[data-theme="oscuro"] .tipo-badge--red    { background-color: rgba(248, 113, 113, 0.15); color: #f87171; }
+[data-theme="oscuro"] .tipo-badge--blue   { background-color: rgba(59, 130, 246, 0.15);  color: #60a5fa; }
+[data-theme="oscuro"] .tipo-badge--orange { background-color: rgba(251, 146, 60, 0.15);  color: #fb923c; }

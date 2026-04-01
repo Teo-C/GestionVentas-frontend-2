@@ -1,42 +1,47 @@
-/**
- * Payment method type
- */
-export type PaymentMethod = 
-  | 'Efectivo'
-  | 'Visa'
-  | 'Mastercard'
-  | 'American Express'
-  | 'Transferencia'
-  | 'Débito'
-  | 'Otro';
+export type PaymentStatus = 'paid' | 'partial' | 'account' | 'cancelled';
+export type InvoiceStatus = 'confirmed' | 'cancelled';
+export type DiscountTarget   = 'none' | 'global' | 'per_payment';
 
-/**
- * Invoice item interface
- */
-export interface InvoiceItem {
-  id: number;
-  articleCode: string;
-  description: string;
-  size: string;
-  color: string;
-  quantity: number;
-  unitPrice: number;
-  total: number;
+export interface InvoicePayment {
+  paymentMethodId: number;
+  paymentMethodName: string; // snapshot del nombre al confirmar
+  amount: number;
+  discount: number;          // puede venir del defaultDiscount o ser editado en el momento
+  discountAmount: number;    // calculado
 }
 
-/**
- * Invoice interface
- */
-export interface Invoice {
+export interface InvoiceItem {
   id: number;
-  invoiceNumber: string;
-  date: string; // ISO date string
-  customerName: string;
+  stockItemId: number;
+  articleId: number;
+  codeBar: string;
+  description: string;
+  brand: string;
+  size: string;
+  color: string;
+  quantity: number;       // editable, mínimo 1
+  unitPrice: number;      // snapshot, NO editable
+  subtotal: number;       // quantity * unitPrice
+}
+
+export interface Invoice {
+  id?: number;
+  invoiceNumber?: string;
+  status: InvoiceStatus;
+  paymentStatus: PaymentStatus;
+  date: string;
+  employeeId: number;
   employeeName: string;
+  clientId?: number;
+  clientName?: string;
   items: InvoiceItem[];
   subtotal: number;
-  discount: number; // discount percentage (0-100)
-  discountAmount: number; // calculated discount amount
-  total: number;
-  paymentMethod: PaymentMethod;
+  discountTarget: DiscountTarget;
+  globalDiscount: number;        // % si discountTarget === 'global', si no 0
+  globalDiscountAmount: number;
+  payments: InvoicePayment[];
+  totalPaid: number;
+  totalAccount: number;          // total - totalPaid (deuda del cliente)
+  total: number;                 // subtotal - descuento activo
+  creditNoteId?: number;
 }

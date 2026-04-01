@@ -1,0 +1,234 @@
+/* ─── Estructura general ─────────────────────────────────────────────────── */
+.pagina-contenedor {
+    padding: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.pagina-titulo {
+    font-size: 1.75rem;
+    color: var(--texto-principal);
+    margin-bottom: 0.25rem;
+}
+
+.pagina-subtitulo {
+    color: var(--texto-secundario);
+    font-size: 0.9rem;
+}
+
+/* ─── Controles ──────────────────────────────────────────────────────────── */
+.controles-tabla {
+    display: flex;
+    gap: 1rem;
+}
+
+.input-busqueda {
+    flex: 1;
+    max-width: 400px;
+    padding: 0.75rem 1rem;
+    border: 1px solid var(--borde-suave);
+    border-radius: 8px;
+    background-color: var(--bg-tarjeta);
+    color: var(--texto-principal);
+    font-size: 0.95rem;
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.input-busqueda:focus {
+    outline: none;
+    border-color: var(--marino-principal);
+    box-shadow: 0 0 0 3px var(--bg-hover);
+}
+
+/* ─── Tabla ──────────────────────────────────────────────────────────────── */
+.tabla-contenedor {
+    background-color: var(--bg-tarjeta);
+    border: 1px solid var(--borde-suave);
+    border-radius: 10px;
+    overflow-x: auto;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+}
+
+.tabla-datos {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: left;
+}
+
+.tabla-datos th,
+.tabla-datos td {
+    padding: 1rem 1.5rem;
+    border-bottom: 1px solid var(--borde-suave);
+}
+
+.tabla-datos th {
+    background-color: var(--bg-panel-secundario);
+    color: var(--texto-secundario);
+    font-weight: 600;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.tabla-datos tbody tr {
+    transition: background-color 0.15s;
+}
+
+.tabla-datos tbody tr:hover {
+    background-color: var(--bg-hover);
+}
+
+.tabla-datos tbody tr:last-child td {
+    border-bottom: none;
+}
+
+.celda-principal {
+    font-weight: 600;
+    color: var(--texto-principal);
+}
+
+.celda-acciones {
+    display: flex;
+    gap: 0.75rem;
+    align-items: center;
+}
+
+.celda-vacia {
+    text-align: center;
+    padding: 3rem !important;
+    color: var(--texto-secundario);
+    font-style: italic;
+}
+
+/* ─── Badge de descuento ─────────────────────────────────────────────────── */
+.badge-descuento {
+    display: inline-block;
+    background-color: rgba(30, 58, 138, 0.1);
+    color: var(--marino-principal);
+    font-weight: 700;
+    font-size: 0.85rem;
+    padding: 0.2rem 0.6rem;
+    border-radius: 99px;
+}
+
+[data-theme="oscuro"] .badge-descuento {
+    background-color: rgba(59, 130, 246, 0.15);
+    color: #60a5fa;
+}
+
+.sin-descuento {
+    color: var(--texto-secundario);
+    font-size: 0.875rem;
+    font-style: italic;
+}
+
+/* ─── Botones ────────────────────────────────────────────────────────────── */
+.boton-primario {
+    background-color: var(--marino-principal);
+    color: var(--texto-inverso);
+    border: none;
+    border-radius: 6px;
+    padding: 0.75rem 1.25rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.2s;
+    align-self: flex-start;
+}
+
+.boton-primario:hover {
+    background-color: var(--marino-hover);
+}
+
+.boton-secundario {
+    background-color: transparent;
+    color: var(--texto-principal);
+    border: 1px solid var(--borde-suave);
+    border-radius: 6px;
+    padding: 0.75rem 1.25rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.boton-secundario:hover {
+    background-color: var(--borde-suave);
+}
+
+.boton-texto {
+    background: none;
+    border: none;
+    color: var(--marino-principal);
+    font-weight: 600;
+    font-size: 0.9rem;
+    cursor: pointer;
+    padding: 0;
+    transition: opacity 0.15s;
+}
+
+.boton-texto:hover {
+    text-decoration: underline;
+}
+
+.boton-texto--danger {
+    color: #dc2626;
+}
+
+[data-theme="oscuro"] .boton-texto--danger {
+    color: #f87171;
+}
+
+/* ─── Formulario del modal ───────────────────────────────────────────────── */
+.modal-formulario {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+}
+
+.campo-grupo {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.campo-grupo label {
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: var(--texto-principal);
+}
+
+.input-formulario {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid var(--borde-suave);
+    border-radius: 6px;
+    background-color: var(--bg-principal);
+    color: var(--texto-principal);
+    font-family: inherit;
+    font-size: 0.95rem;
+    transition: border-color 0.2s;
+}
+
+.input-formulario:focus {
+    outline: none;
+    border-color: var(--marino-principal);
+    box-shadow: 0 0 0 3px var(--bg-hover);
+}
+
+.campo-ayuda {
+    font-size: 0.8rem;
+    color: var(--texto-secundario);
+    line-height: 1.4;
+}
+
+.modal-acciones {
+    display: flex;
+    justify-content: flex-end;
+    gap: 1rem;
+    margin-top: 0.5rem;
+    padding-top: 1.25rem;
+    border-top: 1px solid var(--borde-suave);
+}

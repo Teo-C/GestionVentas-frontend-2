@@ -69,7 +69,7 @@ export default function OpenCloseCashRegisterPage() {
 
   const empleadoSeleccionado = MOCK_EMPLEADOS.find((e) => e.id === empleadoId);
 
-  const ejecutarAccion = (tipo: CashMovement['type']) => {
+  const ejecutarAccion = (tipo: 'opening' | 'closing') => {
     const montoNum = parseFloat(monto);
     if (isNaN(montoNum) || montoNum < 0) {
       toast.error('El monto debe ser un número válido y mayor o igual a cero.');
@@ -104,7 +104,7 @@ export default function OpenCloseCashRegisterPage() {
     }, 800);
   };
 
-  const manejarSubmit = (e: React.FormEvent, tipo: CashMovement['type']) => {
+  const manejarSubmit = (e: React.FormEvent, tipo: 'opening' | 'closing') => {
     e.preventDefault();
     ejecutarAccion(tipo);
   };
